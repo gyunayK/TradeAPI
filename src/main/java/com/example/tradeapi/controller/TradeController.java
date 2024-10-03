@@ -2,6 +2,7 @@ package com.example.tradeapi.controller;
 
 import com.example.tradeapi.dto.TradeDTO;
 import com.example.tradeapi.model.Trade;
+import com.example.tradeapi.model.TradeStatus;
 import com.example.tradeapi.service.TradeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -62,7 +63,6 @@ public class TradeController {
     return ResponseEntity.ok(trades);
   }
 
-  // Helper method to convert TradeDTO to Trade entity
   private Trade convertDTOToTrade(TradeDTO dto) {
     Trade trade = new Trade();
     trade.setId(Math.abs(UUID.randomUUID().hashCode()));
@@ -70,7 +70,7 @@ public class TradeController {
     trade.setAmount(dto.getAmount());
     trade.setRate(getExchangeRate(trade.getCcyPair()));
     trade.setUserComment(dto.getComment());
-    trade.setStatus("IN_PROCESS");
+    trade.setStatus(TradeStatus.IN_PROCESS);
     return trade;
   }
 

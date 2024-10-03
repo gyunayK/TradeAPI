@@ -8,7 +8,7 @@ public class Trade {
   private String ccyPair;
   private double rate;
   private double amount;
-  private String status;
+  private TradeStatus status;
   private String userComment;
   private List<String> traderComments = new ArrayList<>();
 
@@ -16,7 +16,7 @@ public class Trade {
     this.traderComments = new ArrayList<>();
   }
 
-  public Trade(int id, String ccyPair, double rate, double amount, String status, String userComment) {
+  public Trade(int id, String ccyPair, double rate, double amount, TradeStatus status, String userComment) {
     this.id = id;
     this.ccyPair = ccyPair;
     this.rate = rate;
@@ -35,7 +35,7 @@ public class Trade {
 
   public double getAmount() { return amount; }
 
-  public String getStatus() { return status; }
+  public TradeStatus getStatus() { return status; }
 
   public String getUserComment() { return userComment; }
 
@@ -50,7 +50,7 @@ public class Trade {
 
   public void setAmount(double amount) { this.amount = amount; }
 
-  public void setStatus(String status) { this.status = status; }
+  public void setStatus(TradeStatus status) { this.status = status; }
 
   public void setUserComment(String userComment) { this.userComment = userComment; }
 
